@@ -24,9 +24,12 @@ STATE_PATH = Path(__file__).parent / "state.json"
 # a human can look for themselves rather than staying silent.
 OPEN_PHRASES = [
     "makale gönderimine açık",
+    "gönderimine açık",
     "gönderime açık",
     "gönderilere açık",
     "gönderiye açık",
+    "gönderime açıldı",
+    "gönderimine açıldı",
     "yeni makale gönderimi",
     "makale gönderimi başlamıştır",
     "başvurular açılmıştır",
@@ -40,6 +43,13 @@ OPEN_PHRASES = [
 ]
 
 CLOSED_PHRASES = [
+    # Real wording observed on this journal's page as of 2026-09-05: "Makale
+    # Gönderimine Kapalı <date>" and "Gönderime Kapandı <date>" -- note the
+    # "-ine" possessive suffix, which the shorter "gönderime kapalı" phrase
+    # does not match as a substring.
+    "gönderimine kapalı",
+    "gönderime kapandı",
+    "gönderimine kapandı",
     "gönderime kapalı",
     "gönderim kapalıdır",
     "makale kabul etmemektedir",
