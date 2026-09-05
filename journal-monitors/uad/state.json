@@ -1,16 +1,13 @@
 {
-  "checked_at": "2026-09-05T10:23:11.964406+00:00",
+  "checked_at": "2026-09-05T10:24:53.132138+00:00",
   "url": "https://dergipark.org.tr/tr/pub/uad",
   "content_hash": "c5270cb25463fc82b271f4f2e904962919025ef2bb91d5810b2cdc9b27a25b94",
-  "likely_open": true,
-  "matched_open_phrases": [
-    "gönderime açıldı"
-  ],
+  "likely_open": false,
+  "matched_open_phrases": [],
   "matched_closed_phrases": [
-    "gönderimine kapalı",
-    "gönderime kapandı"
+    "gönderimine kapalı"
   ],
   "changed_since_last_check": false,
-  "just_opened": true,
-  "excerpt": "Rehberi Arşiv Politikası Gizlilik Beyanı Dergi İletişim Makale Gönderimine Kapalı 28.08.2026 01:30 Makale Gönderim Tarihçesi Makale Gönderim Tarihçesi &times; Gönderime Kapandı 28.08.2026 01:30 Gönderime Açıldı 27.08.2026 14:41 Gönderime Kapandı 23.08.2026 21:49 Gönderime Açıldı 21.08.2026 13:15 Gönderime Kapandı 29.07.2026 18:19 Gönderime Açıldı 09.01.2026 12:19 Gönderime Kapandı 07.01.2026 20:17 Gönderime Açıldı 07.01.2026 20:10 Gönderime Kapandı 07.01.2026 20:06 Gönderime Açıldı 07.01.2026 18:10 Gönderime Kapandı 25.12.2025 19:17 Gönderime Açıldı 25.12.2025 11:56 Gönderime Kapandı 24.12.202"
+  "just_opened": false,
+  "excerpt": "statistikler Yazım Kuralları Etik İlkeler ve Yayın Politikası Dizinler Telif Hakkı Bilgilendirme Makale Değerlendirme Süreci Hakem Rehberi Arşiv Politikası Gizlilik Beyanı Dergi İletişim Makale Gönderimine Kapalı 28.08.2026 01:30 Makale Gönderim Tarihçesi Makale Gönderim Tarihçesi &times; Gönderime Kapandı 28.08.2026 01:30 Gönderime Açıldı 27.08.2026 14:41 Gönderime Kapandı 23.08.2026 21:49 Gönderime Açıldı 21.08.2026 13:15 Gönderime Kapandı 29.07.2026 18:19 Gönderime Açıldı 09.01.2026 12:19 Gönderime Kapandı 07.01.2026 20:17 Gönderime Açıldı 07.01.2026 20:10 Gönderime Kapandı 07.01.2026 20:06"
 }
