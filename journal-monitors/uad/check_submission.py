@@ -17,19 +17,28 @@ from pathlib import Path
 URL = "https://dergipark.org.tr/tr/pub/uad"
 STATE_PATH = Path(__file__).parent / "state.json"
 
-# Phrases that suggest the journal is (or is not) currently accepting
-# submissions. Matching is case-insensitive against the page's visible text.
-# This is a heuristic, not a guarantee -- when neither list matches, or the
-# signal is ambiguous, we fall back to flagging any meaningful page change so
-# a human can look for themselves rather than staying silent.
-OPEN_PHRASES = [
-    "makale gönderimine açık",
+# The page's header shows an authoritative current-status line, e.g.
+# "Makale Gönderimine Açık" / "Makale Gönderimine Kapalı" (adjective forms:
+# "open"/"closed"). The page ALSO embeds a submission history log further
+# down ("Gönderime Açıldı 27.08.2026...", "Gönderime Kapandı 23.08.2026...",
+# using verb-past forms: "opened"/"closed [at a point in time]") that lists
+# every past transition -- so it always contains both "opened" and "closed"
+# entries regardless of the current state. Matching the verb forms as a
+# signal is therefore useless (always true); only the adjective-form header
+# reliably reflects the current state.
+AUTHORITATIVE_OPEN_PHRASES = [
     "gönderimine açık",
+]
+AUTHORITATIVE_CLOSED_PHRASES = [
+    "gönderimine kapalı",
+]
+
+# Weaker, generic phrases kept as a fallback in case the exact header
+# wording changes -- these are heuristics, not guarantees.
+GENERIC_OPEN_PHRASES = [
     "gönderime açık",
     "gönderilere açık",
     "gönderiye açık",
-    "gönderime açıldı",
-    "gönderimine açıldı",
     "yeni makale gönderimi",
     "makale gönderimi başlamıştır",
     "başvurular açılmıştır",
@@ -42,14 +51,7 @@ OPEN_PHRASES = [
     "now accepting",
 ]
 
-CLOSED_PHRASES = [
-    # Real wording observed on this journal's page as of 2026-09-05: "Makale
-    # Gönderimine Kapalı <date>" and "Gönderime Kapandı <date>" -- note the
-    # "-ine" possessive suffix, which the shorter "gönderime kapalı" phrase
-    # does not match as a substring.
-    "gönderimine kapalı",
-    "gönderime kapandı",
-    "gönderimine kapandı",
+GENERIC_CLOSED_PHRASES = [
     "gönderime kapalı",
     "gönderim kapalıdır",
     "makale kabul etmemektedir",
@@ -109,10 +111,17 @@ def main() -> int:
         return 1
 
     content_hash = hashlib.sha256(text.encode("utf-8")).hexdigest()
-    open_matches = find_matches(text, OPEN_PHRASES)
-    closed_matches = find_matches(text, CLOSED_PHRASES)
 
-    if open_matches and not closed_matches:
+    auth_open = find_matches(text, AUTHORITATIVE_OPEN_PHRASES)
+    auth_closed = find_matches(text, AUTHORITATIVE_CLOSED_PHRASES)
+    open_matches = auth_open + find_matches(text, GENERIC_OPEN_PHRASES)
+    closed_matches = auth_closed + find_matches(text, GENERIC_CLOSED_PHRASES)
+
+    if auth_open:
+        likely_open = True
+    elif auth_closed:
+        likely_open = False
+    elif open_matches and not closed_matches:
         likely_open = True
     elif closed_matches and not open_matches:
         likely_open = False
@@ -133,7 +142,11 @@ def main() -> int:
     just_opened = bool(likely_open) and previous_likely_open is not True
 
     excerpt_source = text
-    if open_matches:
+    if auth_open or auth_closed:
+        anchor = (auth_open + auth_closed)[0]
+        idx = text.lower().find(anchor)
+        excerpt_source = text[max(0, idx - 200) : idx + 400]
+    elif open_matches:
         idx = text.lower().find(open_matches[0])
         excerpt_source = text[max(0, idx - 200) : idx + 400]
     elif closed_matches:
