@@ -29,12 +29,12 @@ jobs:
 
       - name: Commit updated state if it changed
         run: |
-          if git diff --quiet -- journal-monitors/uad/state.json; then
+          git add journal-monitors/uad/state.json
+          if git diff --cached --quiet; then
             echo "No change in state.json, nothing to commit."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add journal-monitors/uad/state.json
           git commit -m "Update UAD journal submission monitor state"
           git push
