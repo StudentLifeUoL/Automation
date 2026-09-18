@@ -1,13 +1,13 @@
 {
-  "checked_at": "2026-09-18T14:18:51.562271+00:00",
+  "checked_at": "2026-09-18T22:26:32.723672+00:00",
   "url": "https://dergipark.org.tr/tr/pub/uad",
-  "content_hash": "edbf52425f32845f3b2432519f8dbbb4ba5c7f162830bd9bc7ee46c66e867833",
-  "likely_open": false,
-  "matched_open_phrases": [],
-  "matched_closed_phrases": [
-    "gönderimine kapalı"
+  "content_hash": "11a8c71fbd2905016bbb4394cf38ecae99595befc12b35e85fa3470c52fa4017",
+  "likely_open": true,
+  "matched_open_phrases": [
+    "gönderimine açık"
   ],
-  "changed_since_last_check": false,
-  "just_opened": false,
-  "excerpt": "statistikler Yazım Kuralları Etik İlkeler ve Yayın Politikası Dizinler Telif Hakkı Bilgilendirme Makale Değerlendirme Süreci Hakem Rehberi Arşiv Politikası Gizlilik Beyanı Dergi İletişim Makale Gönderimine Kapalı 28.08.2026 01:30 Makale Gönderim Tarihçesi Makale Gönderim Tarihçesi &times; Gönderime Kapandı 28.08.2026 01:30 Gönderime Açıldı 27.08.2026 14:41 Gönderime Kapandı 23.08.2026 21:49 Gönderime Açıldı 21.08.2026 13:15 Gönderime Kapandı 29.07.2026 18:19 Gönderime Açıldı 09.01.2026 12:19 Gönderime Kapandı 07.01.2026 20:17 Gönderime Açıldı 07.01.2026 20:10 Gönderime Kapandı 07.01.2026 20:06"
+  "matched_closed_phrases": [],
+  "changed_since_last_check": true,
+  "just_opened": true,
+  "excerpt": "statistikler Yazım Kuralları Etik İlkeler ve Yayın Politikası Dizinler Telif Hakkı Bilgilendirme Makale Değerlendirme Süreci Hakem Rehberi Arşiv Politikası Gizlilik Beyanı Dergi İletişim Makale Gönderimine Açık 18.09.2026 19:31 Makale Gönderim Tarihçesi Makale Gönderim Tarihçesi &times; Gönderime Açıldı 18.09.2026 19:31 Gönderime Kapandı 28.08.2026 01:30 Gönderime Açıldı 27.08.2026 14:41 Gönderime Kapandı 23.08.2026 21:49 Gönderime Açıldı 21.08.2026 13:15 Gönderime Kapandı 29.07.2026 18:19 Gönderime Açıldı 09.01.2026 12:19 Gönderime Kapandı 07.01.2026 20:17 Gönderime Açıldı 07.01.2026 20:10 Gö"
 }
